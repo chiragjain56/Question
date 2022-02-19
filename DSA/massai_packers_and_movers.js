@@ -12,10 +12,8 @@ function count_it(arr, w) {
     
     for (let i = 0;i < arr.length;i++) {
         ans += count_it(arr, w - arr[i])
-    }
-    
-    return ans
-    
+    }  
+    return ans  
 }
 
 function doit(input) {
