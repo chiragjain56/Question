@@ -16,6 +16,7 @@ function doit(input) {
         }
         
         console.log(stk.join(''))
+        
     }
 }
 
