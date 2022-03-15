@@ -11,6 +11,7 @@ function runProgram(input) {
     //  console.log(n,k,arr)
   }
 }
+
 function xyz(n, k, arr) {
   var left = 0;
   var right = n - 1;
