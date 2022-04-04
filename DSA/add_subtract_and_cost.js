@@ -2,6 +2,7 @@ function doit(input) {
     let lines = input.split('\n')
     let t = parseInt(lines[0])
     line = 1
+
     
     while (t --) {
         let [n, k] = lines[line].trim().split(' ').map(Number)
