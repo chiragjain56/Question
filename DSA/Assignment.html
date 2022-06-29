@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Assignment</title>
+     </head>
+
+     <body>
+          <html lang="en">
+               <div id="ele"></div>
+     </body>
+
+</html>
+<script>
+
+     /*
+     You have been given a list of products which is having property productName, quantity and description.
+     
+     
+     PROBLEM STATEMENTS:
+     
+     1. you need to write a function say, getUniqueProductCount which should return count of each Product(as an object) present in the given list of Products considering Product Name as Key.
+     
+     Sample Output for the given listOfProducts will be :
+     
+     {
+       "TV": 2,
+       "AC": 2,
+       "FAN": 1
+     }
+     */
+
+     const listOfProducts = [{
+          productName: "TV",
+          quantity: 10,
+          description: "television"
+     },
+     {
+          productName: "AC",
+          quantity: 5,
+          description: "air conditioner"
+     },
+     {
+          productName: "TV",
+          quantity: 10,
+          description: "television"
+     },
+     {
+          productName: "AC",
+          quantity: 5,
+          description: "air conditioner"
+     },
+     {
+          productName: "FAN",
+          quantity: 10,
+          description: "Ceiling Fan"
+     }
+     ];
+
+     function getUniqueProductCount(listOfProducts) {
+
+          let obj = {};
+          for (let i = 0; i < listOfProducts.length; i++) {
+               if (!obj.hasOwnProperty(listOfProducts[i].productName)) {
+                    obj[listOfProducts[i].productName] = 1;
+               }
+               else {
+                    obj[listOfProducts[i].productName]++;
+               }
+          }
+          //console.log(Object.keys(obj))
+          console.log(obj)
+          for (let key in obj) {
+               let h2 = document.createElement("h2")
+               h2.textContent = `${key} : ${obj[key]}`
+               let ele = document.getElementById("ele");
+
+               ele.appendChild(h2);
+               //console.log(obj[key]);
+          }
+     }
+     //get unique product Count
+     getUniqueProductCount(listOfProducts);
+     /*
+     2. you need to write a function say, getUniquePrducts which should return an array of objects by grouping the products based on the productName and summing up the quantity for the same products present in the given list of Products considering Product Name as Key.
+     
+     Sample Output for the given listOfProducts will be :
+     
+     [{
+         productName: "TV",
+         quantity: 20,
+         description: "television"
+       },
+       {
+         productName: "AC",
+         quantity: 10,
+         description: "air conditioner"
+       },
+       {
+         productName: "FAN",
+         quantity: 10,
+          description: "Ceiling Fan"
+       }
+     ]
+     
+     */
+     function getUniquePrducts(listOfProducts) {
+          let temp = {};
+          let object = null;
+          for (let i = 0; i < listOfProducts.length; i++) {
+               object = listOfProducts[i];
+
+               if (!temp[object.productName]) {
+                    temp[object.productName] = object;
+               } else {
+                    temp[object.productName].quantity += object.quantity;
+               }
+          }
+          let ans = [];
+          for (let e in temp) {
+               ans.push(temp[e]);
+          }
+
+          console.log(ans);
+     }
+     //get unique product
+     getUniquePrducts(listOfProducts);
+</script>
